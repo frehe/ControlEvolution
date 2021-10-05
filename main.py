@@ -11,7 +11,7 @@ num_iterations = 10
 def run_optimization():
     optimization_problem = Quadratic(2)
     evolutionary_algorithm = Mutation(10, optimization_problem)
-    controller = Controller()
+    controller = Controller(optimization_problem)
 
     for k in range(num_iterations):
         # u(k) = K * x(k)
