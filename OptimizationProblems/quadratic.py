@@ -7,4 +7,4 @@ class Quadratic(OptimizationProblem):
         self.Q = np.eye(pop_size)
         
     def function(self, x: np.ndarray) -> np.float:
-        return np.trace(np.matmul(x, np.matmul(self.Q, x.T)))
+        return 0.5 * np.trace(np.matmul(x, np.matmul(self.Q, x.T)))
