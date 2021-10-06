@@ -2,19 +2,21 @@ from abc import ABC
 import numpy as np
 
 from scipy.linalg import solve_discrete_are
+from EvolutionaryAlgorithms import EvolutionaryAlgorithm
 
 from OptimizationProblems import OptimizationProblem
 
 class Controller(ABC):
-    def __init__(self, optimization_problem: OptimizationProblem) -> None:
+    def __init__(self, optimization_problem: OptimizationProblem, evolutionary_algorithm: EvolutionaryAlgorithm) -> None:
         super().__init__()
         self.optimization_problem = optimization_problem
+        self.evolutionary_algorithm = evolutionary_algorithm
     
     def step(self, state: np.ndarray) -> np.ndarray:
         # LQR controller
         pop_size, n = state.shape
-        A = np.eye(n)
-        B = 0.1 * np.eye(n)
+        A = self.evolutionary_algorithm.A
+        B = self.evolutionary_algorithm.B
         Q = self.optimization_problem.Q
         R = np.zeros((n, n))
 
