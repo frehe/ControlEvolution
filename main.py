@@ -7,10 +7,12 @@ from EvolutionaryAlgorithms.crossover import Crossover
 
 
 num_iterations = 10
+pop_size = 10
+n = 2
 
 def run_optimization():
-    optimization_problem = Quadratic(2)
-    evolutionary_algorithm = Mutation(10, optimization_problem)
+    optimization_problem = Quadratic(n, pop_size)
+    evolutionary_algorithm = Mutation(pop_size, optimization_problem)
     controller = Controller(optimization_problem, evolutionary_algorithm)
 
     for k in range(num_iterations):

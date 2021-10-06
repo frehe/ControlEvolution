@@ -2,9 +2,9 @@ import numpy as np
 from OptimizationProblems import OptimizationProblem
 
 class Quadratic(OptimizationProblem):
-    def __init__(self, n: int) -> None:
-        super().__init__(n)
-        self.Q = np.eye(n)
+    def __init__(self, n: int, pop_size: int) -> None:
+        super().__init__(n, pop_size)
+        self.Q = np.eye(pop_size)
         
     def function(self, x: np.ndarray) -> np.float:
-        return x.transpose().dot(self.Q.dot(x))
+        return np.trace(np.matmul(x, np.matmul(self.Q, x.T)))
