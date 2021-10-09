@@ -23,9 +23,4 @@ class Controller(ABC):
         P = solve_discrete_are(A, B, Q, R)
         F = np.linalg.solve(R + B.T * P * B, B.T * P * A)
 
-        # return -1.0 * np.squeeze(np.matmul(
-        #     np.repeat(F[np.newaxis,:,:], pop_size, axis=0),
-        #     state[:,:,np.newaxis]
-        # ))
-
         return -1.0 * np.matmul(F, state)

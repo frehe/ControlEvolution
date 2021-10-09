@@ -7,7 +7,7 @@ from EvolutionaryAlgorithms.crossover import Crossover
 
 
 num_iterations = 10
-pop_size = 10
+pop_size = 3
 n = 2
 
 def run_optimization():
@@ -22,7 +22,7 @@ def run_optimization():
         # x(k+1) = Ax(k) + Bu(k)
         evolutionary_algorithm.step(input)
     
-    print(evolutionary_algorithm.population)
+    print(np.reshape(evolutionary_algorithm.population, (pop_size, n)))
 
 
 run_optimization()
