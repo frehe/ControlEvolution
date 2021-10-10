@@ -2,7 +2,7 @@ import numpy as np
 from EvolutionaryAlgorithms.Mutation import Mutation
 
 from OptimizationProblems.quadratic import Quadratic
-from Controllers.Controller import Controller
+from Controllers import Controller
 from EvolutionaryAlgorithms.crossover import Crossover
 
 
